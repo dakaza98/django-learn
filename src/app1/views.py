@@ -1,5 +1,14 @@
-from django.http import HttpResponse
+from django.shortcuts import render
+from app1.forms import PhoneForm
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the index page.")
+    if request.method == 'POST':
+        form = PhoneForm(request.POST)
+        if form.is_valid():
+            pass
+
+    else:
+        form = PhoneForm()
+
+    return render(request, 'phonenumbers.html', {'form': form})
