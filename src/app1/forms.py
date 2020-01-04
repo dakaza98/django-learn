@@ -18,6 +18,5 @@ class PhoneField(forms.CharField):
             raise forms.ValidationError(_("Invalid phonenumber"))
 
 
-# TODO: Create own phonefield
 class PhoneForm(forms.Form):
     phone_number = PhoneField(label='Telefonnummer', max_length=100)
